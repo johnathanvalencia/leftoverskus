@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-          &copy; 2024 Left Over SKUs. Synthetic Media Things.
+          &copy; 2026 Left Over SKUs. Synthetic Media Things.
         </p>
       </div>
     </footer>
