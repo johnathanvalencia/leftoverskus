@@ -25,7 +25,7 @@ const team = [
   },
   {
     name: "Amir",
-    title: "Intern",
+    title: "🎉 Happy April Fools, Amir",
     sub: "Brings coffee and tea.",
     image: "/amir.png",
   },
@@ -44,7 +44,7 @@ export default function Company() {
               <Badge>The Team</Badge>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h1 className="mt-6 font-heading text-5xl font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
+              <h1 className="mt-6 font-heading text-3xl leading-none font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
                 The Humans
                 <br />
                 <span className="text-muted-foreground">Behind the Rebellion.</span>

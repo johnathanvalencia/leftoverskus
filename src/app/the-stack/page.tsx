@@ -32,7 +32,7 @@ export default function TheStack() {
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h1 className="font-heading text-5xl font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
+              <h1 className="font-heading text-2xl leading-none font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
                 The Engine of
                 <br />
                 <em className="italic bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">

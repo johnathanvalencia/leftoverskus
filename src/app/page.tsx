@@ -32,7 +32,7 @@ export default function Home() {
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h1 className="font-heading text-5xl font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
+              <h1 className="font-heading text-3xl leading-none font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
                 Synthetic Video.
                 <br />
                 Infinite SKUs.

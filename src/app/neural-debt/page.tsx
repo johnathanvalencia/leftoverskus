@@ -27,7 +27,7 @@ export default function NeuralDebt() {
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <h1 className="font-heading text-5xl font-extrabold uppercase tracking-tight sm:text-7xl lg:text-9xl">
+              <h1 className="font-heading text-3xl leading-none font-extrabold uppercase tracking-tight sm:text-7xl lg:text-9xl">
                 <em className="italic bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
                   Neural
                 </em>{" "}
