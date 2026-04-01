@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Left Over SKUs",
   description:
-    "Rewrite your video DNA. Synthesize infinite, high-fidelity video assets at enterprise scale.",
+    "Synthesize infinite, high-fidelity video assets for every SKU — no cameras, no crews. AI-powered video generation at enterprise scale.",
 };
 
 export default function RootLayout({
