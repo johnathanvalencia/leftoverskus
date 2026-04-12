@@ -9,6 +9,7 @@ import { MobileSidebar } from "@/components/client-portal/mobile-sidebar";
 const pageTitles: Record<string, string> = {
   "/client-portal/dashboard": "Dashboard",
   "/client-portal/catalog": "Catalog",
+  "/client-portal/catalog2": "Catalog v2",
   "/client-portal/uploads": "Uploads",
   "/client-portal/compositions": "Compositions",
   "/client-portal/storylines": "Storylines",

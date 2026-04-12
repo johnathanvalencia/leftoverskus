@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 const enabledRoutes = new Set([
   "/client-portal/dashboard",
   "/client-portal/catalog",
+  "/client-portal/catalog2",
   "/client-portal/uploads",
   "/client-portal/compositions",
 ]);
@@ -28,6 +29,7 @@ const enabledRoutes = new Set([
 const navItems = [
   { label: "Dashboard", href: "/client-portal/dashboard", icon: LayoutDashboard },
   { label: "Catalog", href: "/client-portal/catalog", icon: FolderTree },
+  { label: "Catalog v2", href: "/client-portal/catalog2", icon: FolderTree },
   { label: "Uploads", href: "/client-portal/uploads", icon: UploadCloud },
   { label: "Compositions", href: "/client-portal/compositions", icon: Layers },
   { label: "Storylines", href: "/client-portal/storylines", icon: BookOpen },
