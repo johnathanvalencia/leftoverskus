@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { RequestAccessProvider } from "@/components/request-access-modal";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const syne = Syne({
@@ -35,10 +36,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <RequestAccessProvider>{children}</RequestAccessProvider>
+        <ThemeProvider>
+          <RequestAccessProvider>{children}</RequestAccessProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

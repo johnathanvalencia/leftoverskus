@@ -14,8 +14,8 @@
   --color-purple: #7c3aed;
   --color-purple-light: #a78bfa;
   --color-purple-dark: #6d28d9;
-  --color-surface: #0c0c1d;
-  --color-surface-light: #12122a;
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -59,6 +59,47 @@
 }
 
 :root {
+  --surface: #f1f5f9;
+  --surface-light: #e2e8f0;
+  --background: #fafafa;
+  --foreground: #0f0f1a;
+  --card: #ffffff;
+  --card-foreground: #0f0f1a;
+  --popover: #ffffff;
+  --popover-foreground: #0f0f1a;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f0ff;
+  --secondary-foreground: #1a1a2e;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #7c3aed;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #7c3aed;
+  --radius: 0.5rem;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f0f1a;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f0ff;
+  --sidebar-accent-foreground: #1a1a2e;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #7c3aed;
+
+  --chart-1: #7c3aed;
+  --chart-2: #8b5cf6;
+  --chart-3: #a78bfa;
+  --chart-4: #c4b5fd;
+  --chart-5: #ddd6fe;
+}
+
+.dark {
+  --surface: #0c0c1d;
+  --surface-light: #12122a;
   --background: #050510;
   --foreground: #f5f5f5;
   --card: #0c0c1d;
@@ -77,7 +118,6 @@
   --border: #ffffff14;
   --input: #ffffff14;
   --ring: #7c3aed;
-  --radius: 0.5rem;
 
   --sidebar: #0c0c1d;
   --sidebar-foreground: #f5f5f5;
