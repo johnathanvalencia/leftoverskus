@@ -331,7 +331,7 @@ export default function Catalog2Page() {
         <form onSubmit={(e) => { e.preventDefault(); submitProduct(); }} className="space-y-4">
           <div className="space-y-2">
             <Label>Brand</Label>
-            <Select value={modalBrandId} onValueChange={setModalBrandId}>
+            <Select value={modalBrandId} onValueChange={(v) => setModalBrandId(v ?? "")}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select a brand" />
               </SelectTrigger>
@@ -358,7 +358,7 @@ export default function Catalog2Page() {
         <form onSubmit={(e) => { e.preventDefault(); submitVariant(); }} className="space-y-4">
           <div className="space-y-2">
             <Label>Brand</Label>
-            <Select value={modalBrandId} onValueChange={(v) => { setModalBrandId(v); setModalProductId(""); }}>
+            <Select value={modalBrandId} onValueChange={(v) => { setModalBrandId(v ?? ""); setModalProductId(""); }}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select a brand" />
               </SelectTrigger>
@@ -371,7 +371,7 @@ export default function Catalog2Page() {
           </div>
           <div className="space-y-2">
             <Label>Product</Label>
-            <Select value={modalProductId} onValueChange={setModalProductId} disabled={!modalBrandId}>
+            <Select value={modalProductId} onValueChange={(v) => setModalProductId(v ?? "")} disabled={!modalBrandId}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder={modalBrandId ? "Select a product" : "Select a brand first"} />
               </SelectTrigger>
