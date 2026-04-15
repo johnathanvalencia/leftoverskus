@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { DnaBackground } from "@/components/dna-background";
@@ -8,88 +9,59 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/animations";
-import { Badge } from "@/components/ui/badge";
 import { RequestAccessButton } from "@/components/request-access-modal";
-import { Shield, Eye, Scale } from "lucide-react";
-
-const investors = ["a16z", "Sequoia", "Accenture", "Google Ventures"];
-const brands = ["Nike", "Unilever", "L\u2019Or\u00e9al", "Shopify", "LVMH"];
+import { Shield, Eye, Lock, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <main className="pt-14">
-        {/* ── Hero ── */}
+        {/* ── Section 1: Hero ── */}
         <section className="relative overflow-hidden py-20 lg:py-32">
           <DnaBackground />
           <div className="absolute inset-0 bg-gradient-to-b from-purple/5 via-transparent to-transparent" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple/50 to-transparent" />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-            <FadeUp>
-              <Badge className="mb-6">$18.5M Series A — Oversubscribed</Badge>
-            </FadeUp>
-
             <FadeUp delay={0.1}>
-              <h1 className="font-heading text-3xl leading-none font-extrabold uppercase tracking-tight sm:text-7xl lg:text-8xl">
-                Synthetic Video.
+              <h1 className="font-heading text-3xl leading-none font-extrabold uppercase tracking-tight sm:text-5xl lg:text-7xl">
+                Brand-Governed Video.
                 <br />
-                Infinite SKUs.
+                Commerce Scale.
                 <br />
                 <em className="italic bg-gradient-to-r from-purple to-purple-light bg-clip-text text-transparent">
-                  Zero Waste.
+                  Zero Hallucinations.
                 </em>
               </h1>
             </FadeUp>
 
             <FadeUp delay={0.2}>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                The end of manual production is dead. We mine your brand&apos;s
-                core essence to synthesize infinite, high-fidelity video assets.
-                No cameras. No crews. Just raw digital genius.
+                The enterprise production platform for agencies and brands that
+                need compliant video faster than any team can produce it.
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.3}>
-              <p className="hidden mt-6 font-mono text-xs uppercase tracking-widest text-purple">
-                Private Beta — 200+ Brands Onboarded
+            <FadeIn delay={0.4} className="mt-10 border-t border-white/[0.06] pt-10">
+              <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Trusted by Tier-1 agency networks &middot; Evidence-backed
+                compliance &middot; Pay only for approved output
               </p>
+            </FadeIn>
+
+            <FadeUp delay={0.5} className="mt-6 flex flex-wrap gap-4">
+              <RequestAccessButton className="bg-purple hover:bg-purple-dark text-white font-mono text-xs uppercase tracking-wider">
+                Book a Briefing
+              </RequestAccessButton>
+              <Link
+                href="/platform"
+                className="inline-flex items-center gap-2 rounded-lg border border-purple/30 px-4 py-2 font-mono text-xs uppercase tracking-wider text-purple transition-colors hover:bg-purple/10"
+              >
+                See the Platform
+                <ArrowRight className="h-3 w-3" />
+              </Link>
             </FadeUp>
-
-            {/* Investor logos */}
-            <FadeIn delay={0.5} className="mt-10 border-t border-white/[0.06] pt-10">
-              <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                Backed By
-              </p>
-              <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
-                {investors.map((name) => (
-                  <span
-                    key={name}
-                    className="font-heading text-lg font-bold uppercase tracking-wider text-white/30"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            </FadeIn>
-
-            {/* Brand logos */}
-            <FadeIn delay={0.65} className="mt-10">
-              <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                In Private Beta With
-              </p>
-              <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
-                {brands.map((name) => (
-                  <span
-                    key={name}
-                    className="font-heading text-lg font-bold uppercase tracking-wider text-white/20"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            </FadeIn>
           </div>
         </section>
 
@@ -98,71 +70,54 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
 
-        {/* ── The Hero SKU Trap ── */}
+        {/* ── Section 2: The Brand Video Gap ── */}
         <section className="py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-16 lg:grid-cols-[60fr_40fr] lg:gap-32">
               <FadeUp>
                 <p className="mb-4 font-mono text-xs uppercase tracking-widest text-purple">
-                  The Efficiency Gap
+                  The Core Problem
                 </p>
                 <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-                  The Hero
+                  The Brand
                   <br />
-                  <span className="text-muted-foreground">SKU Trap.</span>
+                  <span className="text-muted-foreground">Video Gap.</span>
                 </h2>
                 <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-                  Most brands pour 100% of their budget into the top{" "}
-                  <span className="font-semibold text-white underline underline-offset-4 decoration-purple/50">
-                    15% of products.
-                  </span>
+                  Commerce demands thousands of product videos — per season, per
+                  market, per platform. Brand governance demands every one of them
+                  be compliant, on-brand, and legally defensible.
                 </p>
-                <p className="mt-6 leading-relaxed text-muted-foreground">
-                  The other 85%? They&apos;re left to die in a graveyard of
-                  static imagery. &ldquo;Left Over SKUs&rdquo; are the massive
-                  missed opportunity for conversion, lower returns, and SEO
-                  dominance.
-                </p>
-                <p className="mt-6 leading-relaxed text-muted-foreground">
-                  Traditional video is too slow. Hollywood crews are too
-                  expensive. We use AI to bridge the gap, covering your entire
-                  long-tail at the speed of thought.
+                <p className="mt-6 text-lg leading-relaxed text-white font-semibold">
+                  No production model bridges that gap. Until now.
                 </p>
               </FadeUp>
 
               <SlideIn from="right" delay={0.2} className="h-full">
-                <div className="flex h-full flex-col overflow-hidden rounded-lg border border-white/[0.06] lg:mt-6">
-                  {/* 15% Heroes bar */}
-                  <div className="flex items-center justify-between bg-purple px-5 py-3">
-                    <span className="font-heading text-sm font-bold uppercase tracking-wider text-white">
-                      15% Heroes
-                    </span>
-                    <svg
-                      className="h-6 w-6 text-white/60"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    >
-                      <path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-                    </svg>
-                  </div>
-
-                  {/* 85% Left Overs block — grows to fill remaining height */}
-                  <div className="flex flex-1 flex-col justify-center bg-surface p-8">
-                    <p className="font-heading text-7xl font-extrabold text-white">
+                <div className="flex h-full flex-col gap-4">
+                  <div className="rounded-lg border border-white/[0.06] bg-surface p-6">
+                    <p className="font-heading text-5xl font-extrabold text-purple">
                       85%
                     </p>
-                    <p className="mt-2 font-heading text-xl font-bold uppercase tracking-wider">
-                      The Left Overs
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      of product SKUs have zero video coverage
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      <span>Untapped SEO</span>
-                      <span className="text-purple">•</span>
-                      <span>High Returns</span>
-                      <span className="text-purple">•</span>
-                      <span>Zero Video</span>
-                    </div>
+                  </div>
+                  <div className="rounded-lg border border-white/[0.06] bg-surface p-6">
+                    <p className="font-heading text-5xl font-extrabold text-purple">
+                      4–6 wks
+                    </p>
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      average production cycle per video
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-white/[0.06] bg-surface p-6">
+                    <p className="font-heading text-5xl font-extrabold text-purple">
+                      73%
+                    </p>
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      of brands cite compliance as top AI video barrier
+                    </p>
                   </div>
                 </div>
               </SlideIn>
@@ -175,54 +130,116 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
 
-        {/* ── The Protocol ── */}
+        {/* ── Section 3: The Shift ── */}
         <section className="py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <FadeUp>
               <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-                The
+                From Production Line
                 <br />
-                Protocol.
+                <span className="text-muted-foreground">
+                  to Production Platform.
+                </span>
+              </h2>
+            </FadeUp>
+
+            <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-white/[0.06] bg-white/[0.06] md:grid-cols-2">
+              {[
+                {
+                  before: "Video is a service line",
+                  after: "Video is infrastructure",
+                },
+                {
+                  before: "Cost scales with headcount",
+                  after: "Cost scales with output",
+                },
+                {
+                  before: "Compliance is a review step",
+                  after: "Compliance is built into generation",
+                },
+                {
+                  before: "Brand guidelines are PDFs",
+                  after: "Brand DNA is a living system",
+                },
+                {
+                  before: "One video at a time",
+                  after: "Thousands, governed, simultaneously",
+                },
+              ].map((row) => (
+                <FadeUp key={row.before}>
+                  <div className="grid grid-cols-2 bg-surface">
+                    <div className="p-5 border-r border-white/[0.06]">
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
+                        Before
+                      </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {row.before}
+                      </p>
+                    </div>
+                    <div className="p-5">
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-purple mb-2">
+                        After
+                      </p>
+                      <p className="text-sm text-white leading-relaxed">
+                        {row.after}
+                      </p>
+                    </div>
+                  </div>
+                </FadeUp>
+              ))}
+            </div>
+
+            <FadeUp delay={0.3}>
+              <p className="mt-10 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+                PathLLM is not a creative tool. It&apos;s the governed
+                production layer your brand infrastructure has been missing.
+              </p>
+            </FadeUp>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        </div>
+
+        {/* ── Section 4: How It Works (The Engine) ── */}
+        <section className="py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <FadeUp>
+              <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+                How It
+                <br />
+                Works.
               </h2>
               <p className="mt-6 max-w-2xl text-muted-foreground leading-relaxed">
-                Five steps from chaos to order. Our pipeline strips your brand
-                to its visual atoms and reconstructs it for the synthetic era.
+                Three steps from brand assets to governed video at scale.
               </p>
             </FadeUp>
 
             <StaggerContainer
-              className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              className="mt-16 grid gap-6 sm:grid-cols-3"
               staggerDelay={0.12}
             >
               {[
                 {
                   num: "01",
-                  title: "Upload",
-                  desc: "Feed our engine your raw archive. Every frame, every font, every pixel of brand history.",
+                  title: "Extract",
+                  desc: "Upload brand assets and guidelines. PathLLM extracts your Brand DNA — the visual grammar, motion language, and compliance rules that make your brand yours.",
                 },
                 {
                   num: "02",
-                  title: "Mine",
-                  desc: "Neural crawlers extract your unique Brand DNA\u2014the subconscious cues that make you, you.",
+                  title: "Synthesize",
+                  desc: "Define intent. Select products. The platform synthesizes governed video from verified brand elements — every frame composed against your Brand DNA, not imagined from a prompt.",
                 },
                 {
                   num: "03",
-                  title: "Create",
-                  desc: "Define the intent. Set the mood. Orchestrate the vision through high-level tactical prompts.",
-                },
-                {
-                  num: "04",
-                  title: "Synthesize",
-                  desc: "Watch as our engine renders high-fidelity assets in real-time. Native resolution, pure quality.",
-                },
-                {
-                  num: "05",
-                  title: "Audit",
-                  desc: "Governance built into the grain. Every asset is verified for brand safety and legal compliance.",
+                  title: "Deploy",
+                  desc: "Approved videos go live. Full audit trail. Every asset traceable, defensible, and yours.",
                 },
               ].map((step) => (
-                <StaggerItem key={step.title}>
-                  <div className="group rounded-lg border border-white/[0.06] bg-surface p-6 transition-colors hover:border-purple/20">
+                <StaggerItem key={step.title} className="h-full">
+                  <div className="group h-full rounded-lg border border-white/[0.06] bg-surface p-6 transition-colors hover:border-purple/20">
                     <span className="font-heading text-2xl font-bold text-purple">
                       {step.num}
                     </span>
@@ -236,6 +253,16 @@ export default function Home() {
                 </StaggerItem>
               ))}
             </StaggerContainer>
+
+            <FadeUp delay={0.3} className="mt-8">
+              <Link
+                href="/platform"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple transition-colors hover:text-purple-light"
+              >
+                See the full platform architecture
+                <ArrowRight className="h-3 w-3" />
+              </Link>
+            </FadeUp>
           </div>
         </section>
 
@@ -244,83 +271,58 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
 
-        {/* ── Built for the Grind ── */}
+        {/* ── Section 5: Who It's For ── */}
         <section className="py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <FadeUp>
               <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-                Built For
+                Built for the Teams
                 <br />
-                The Grind.
+                <span className="text-muted-foreground">
+                  That Scale Brands.
+                </span>
               </h2>
             </FadeUp>
 
-            <div className="mt-16 grid gap-6 lg:grid-cols-[1fr_auto_1fr]">
+            <div className="mt-16 grid gap-6 lg:grid-cols-2">
               <FadeUp delay={0.1}>
-                <div className="h-full rounded-lg border border-white/[0.06] bg-surface p-8">
+                <div className="group h-full rounded-lg border border-white/[0.06] bg-surface p-8 transition-colors hover:border-purple/20">
                   <h3 className="font-heading text-xl font-bold uppercase tracking-wider">
-                    For Brands
+                    For Agencies & Holding Companies
                   </h3>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Scale your creative output without diluting your soul.
-                    Maintain 100% brand consistency across every digital
-                    touchpoint, globally, instantly.
+                    Turn video production from a cost center into a
+                    margin-positive capability. One deployment serves your entire
+                    client portfolio — every brand governed independently, every
+                    asset isolated.
                   </p>
-                  <ul className="mt-6 space-y-3 font-mono text-xs uppercase tracking-wider text-white">
-                    {[
-                      "Infinite Scale",
-                      "DNA Retention",
-                      "Global Sync",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3">
-                        <div className="h-1.5 w-1.5 rounded-full bg-purple" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeUp>
-
-              {/* Center visual — circuit / chip pattern */}
-              <FadeUp delay={0.15} className="hidden lg:flex">
-                <div className="relative h-full w-28 overflow-hidden rounded-lg border border-white/[0.06] bg-surface">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-[3px] p-3">
-                    {Array.from({ length: 24 }).map((_, row) => (
-                      <div key={row} className="flex w-full gap-[3px]">
-                        {Array.from({ length: 4 }).map((_, col) => {
-                          const isPurple =
-                            (row + col) % 5 === 0 || (row * col) % 7 === 0;
-                          return (
-                            <div
-                              key={col}
-                              className={`h-2 flex-1 rounded-[1px] ${
-                                isPurple
-                                  ? "bg-purple/30"
-                                  : "bg-white/[0.04]"
-                              }`}
-                            />
-                          );
-                        })}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-surface to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent" />
-                  <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-surface to-transparent" />
-                  <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-surface to-transparent" />
+                  <Link
+                    href="/solutions/agencies"
+                    className="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple transition-colors hover:text-purple-light"
+                  >
+                    See agency solutions
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </FadeUp>
 
               <FadeUp delay={0.2}>
-                <div className="h-full rounded-lg border border-white/[0.06] bg-surface p-8">
+                <div className="group h-full rounded-lg border border-white/[0.06] bg-surface p-8 transition-colors hover:border-purple/20">
                   <h3 className="font-heading text-xl font-bold uppercase tracking-wider">
-                    For Agencies
+                    For Brands
                   </h3>
                   <p className="mt-4 leading-relaxed text-muted-foreground">
-                    The ultimate force multiplier for creative teams. Stop
-                    fighting production bottlenecks and start designing at the
-                    speed of thought.
+                    Cover your full product catalog with governed video — not
+                    just the hero SKUs. From 15% coverage to 100%, with every
+                    asset compliant, on-brand, and legally defensible.
                   </p>
+                  <Link
+                    href="/solutions/brands"
+                    className="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple transition-colors hover:text-purple-light"
+                  >
+                    See brand solutions
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </FadeUp>
             </div>
@@ -332,23 +334,18 @@ export default function Home() {
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
 
-        {/* ── The New Standard ── */}
+        {/* ── Section 6: Governance & Trust ── */}
         <section className="py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
               <FadeUp>
                 <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-                  The New
+                  Governance Isn&apos;t a Feature.
                   <br />
-                  Standard.
+                  <span className="text-muted-foreground">
+                    It&apos;s the Architecture.
+                  </span>
                 </h2>
-              </FadeUp>
-
-              <FadeUp delay={0.1}>
-                <p className="max-w-sm text-lg italic text-muted-foreground lg:text-right">
-                  &ldquo;Governance isn&apos;t a checkbox; it&apos;s the
-                  foundation of the rebellion.&rdquo;
-                </p>
               </FadeUp>
             </div>
 
@@ -359,18 +356,18 @@ export default function Home() {
               {[
                 {
                   icon: Shield,
-                  title: "Neural Rights",
-                  desc: "Your data never leaves your perimeter. We train on your terms, for your eyes only. No leakage. No shared weights.",
+                  title: "Zero Hallucinations",
+                  desc: "Every output is evidence-backed. No generated elements outside your approved asset library.",
                 },
                 {
                   icon: Eye,
-                  title: "Transparency Logs",
-                  desc: "Full cryptographic audit trails for every synthesized asset. Know exactly what was used and when it was created.",
+                  title: "Full Audit Trail",
+                  desc: "Cryptographic provenance for every frame. Know exactly what was used and why.",
                 },
                 {
-                  icon: Scale,
-                  title: "Legal Guardrails",
-                  desc: "Built-in compliance filters that automatically detect and prevent IP infringement before the first frame is rendered.",
+                  icon: Lock,
+                  title: "Your Data, Your Perimeter",
+                  desc: "Brand assets never leave your environment. No shared models. No cross-client leakage.",
                 },
               ].map((item) => (
                 <StaggerItem key={item.title}>
@@ -386,25 +383,48 @@ export default function Home() {
                 </StaggerItem>
               ))}
             </StaggerContainer>
+
+            <FadeUp delay={0.3} className="mt-8">
+              <Link
+                href="/governance"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple transition-colors hover:text-purple-light"
+              >
+                Read the full governance framework
+                <ArrowRight className="h-3 w-3" />
+              </Link>
+            </FadeUp>
           </div>
         </section>
 
-        {/* ── Join The Unknown CTA ── */}
+        {/* ── Section 7: CTA ── */}
         <section className="relative py-24 lg:py-32">
           <div className="absolute inset-0 bg-gradient-to-t from-purple/5 via-transparent to-transparent" />
           <div className="relative mx-auto max-w-7xl px-6 text-center lg:px-8">
             <FadeUp>
               <h2 className="font-heading text-4xl font-extrabold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-                Join The
-                <br />
-                Unknown.
+                Close the Gap.
               </h2>
             </FadeUp>
 
-            <FadeUp delay={0.15} className="mt-10">
+            <FadeUp delay={0.15} className="mt-10 flex justify-center gap-4 flex-wrap">
               <RequestAccessButton className="bg-purple hover:bg-purple-dark text-white font-mono text-xs uppercase tracking-wider">
-                Request Access
+                Book a Briefing
               </RequestAccessButton>
+              <RequestAccessButton
+                defaultRole="agency"
+                variant="outline"
+                className="border-purple/30 text-purple hover:bg-purple/10 font-mono text-xs uppercase tracking-wider"
+              >
+                Book an Agency Briefing
+              </RequestAccessButton>
+            </FadeUp>
+
+            <FadeUp delay={0.25}>
+              <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                First video produced under NDA. Agency briefings available for
+                qualified holding company and independent agency contacts. All
+                assets fully deleted on exit. No commitment, no lock-in.
+              </p>
             </FadeUp>
           </div>
         </section>

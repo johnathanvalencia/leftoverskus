@@ -11,7 +11,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const ModalContext = createContext<{ open: () => void }>({ open: () => {} });
+const ModalContext = createContext<{ open: (defaultRole?: string) => void }>({
+  open: () => {},
+});
 
 export function useRequestAccess() {
   return useContext(ModalContext);
@@ -20,11 +22,23 @@ export function useRequestAccess() {
 export function RequestAccessProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", skuSize: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    role: "",
+    volume: "",
+  });
 
-  const open = useCallback(() => {
+  const open = useCallback((defaultRole?: string) => {
     setSubmitted(false);
-    setForm({ name: "", email: "", skuSize: "" });
+    setForm({
+      name: "",
+      email: "",
+      company: "",
+      role: defaultRole || "",
+      volume: "",
+    });
     setIsOpen(true);
   }, []);
 
@@ -48,19 +62,17 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-6"
           >
-            {/* Backdrop */}
             <div
               className="absolute inset-0 bg-black/70 backdrop-blur-sm"
               onClick={close}
             />
 
-            {/* Modal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative w-full max-w-md overflow-hidden rounded-xl border border-white/[0.06] bg-[#0c0c1d]"
+              className="relative w-full max-w-md max-h-[90vh] overflow-y-auto overflow-hidden rounded-xl border border-white/[0.06] bg-[#0c0c1d]"
             >
               <button
                 onClick={close}
@@ -73,10 +85,10 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
                 {!submitted ? (
                   <>
                     <h3 className="font-heading text-2xl font-bold uppercase tracking-wider">
-                      Request Access
+                      Book a Briefing
                     </h3>
                     <p className="mt-2 text-sm text-muted-foreground">
-                      Join the private beta. Limited spots available.
+                      First video produced under NDA. No commitment required.
                     </p>
 
                     <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -98,7 +110,7 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
 
                       <div>
                         <label className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                          Email
+                          Work Email
                         </label>
                         <input
                           type="email"
@@ -114,25 +126,63 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
 
                       <div>
                         <label className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                          SKU Size
+                          Company
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={form.company}
+                          onChange={(e) =>
+                            setForm({ ...form, company: e.target.value })
+                          }
+                          className="w-full rounded-lg border border-white/[0.06] bg-[#050510] px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-muted-foreground focus:border-purple/50"
+                          placeholder="Acme Corp"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                          I am a...
                         </label>
                         <select
                           required
-                          value={form.skuSize}
+                          value={form.role}
                           onChange={(e) =>
-                            setForm({ ...form, skuSize: e.target.value })
+                            setForm({ ...form, role: e.target.value })
                           }
                           className="w-full appearance-none rounded-lg border border-white/[0.06] bg-[#050510] px-4 py-3 text-sm text-white outline-none transition-colors focus:border-purple/50"
                         >
                           <option value="" disabled>
-                            Select your catalog size
+                            Select your role
                           </option>
-                          <option value="1-500">1 – 500 SKUs</option>
-                          <option value="500-5000">500 – 5,000 SKUs</option>
-                          <option value="5000-50000">
-                            5,000 – 50,000 SKUs
+                          <option value="agency">
+                            Agency / Holding Company
                           </option>
-                          <option value="50000+">50,000+ SKUs</option>
+                          <option value="brand">Brand / Retailer</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                          Monthly Video Volume
+                        </label>
+                        <select
+                          required
+                          value={form.volume}
+                          onChange={(e) =>
+                            setForm({ ...form, volume: e.target.value })
+                          }
+                          className="w-full appearance-none rounded-lg border border-white/[0.06] bg-[#050510] px-4 py-3 text-sm text-white outline-none transition-colors focus:border-purple/50"
+                        >
+                          <option value="" disabled>
+                            Expected videos per month
+                          </option>
+                          <option value="1-100">1 – 100</option>
+                          <option value="100-500">100 – 500</option>
+                          <option value="500-2000">500 – 2,000</option>
+                          <option value="2000-10000">2,000 – 10,000</option>
+                          <option value="10000+">10,000+</option>
                         </select>
                       </div>
 
@@ -140,7 +190,7 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
                         type="submit"
                         className="w-full bg-purple hover:bg-purple-dark text-white font-mono text-xs uppercase tracking-wider"
                       >
-                        Submit Request
+                        Request Briefing
                       </Button>
                     </form>
                   </>
@@ -150,11 +200,11 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
                       <CheckCircle className="h-7 w-7 text-purple" />
                     </div>
                     <h3 className="mt-5 font-heading text-2xl font-bold uppercase tracking-wider">
-                      You&apos;re In
+                      Briefing Requested
                     </h3>
                     <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
-                      We&apos;ll send a confirmation to your inbox with next
-                      steps. Welcome to the rebellion.
+                      We&apos;ll reach out within one business day to schedule
+                      your briefing. All assets fully deleted on exit.
                     </p>
                     <Button
                       onClick={close}
@@ -177,16 +227,23 @@ export function RequestAccessButton({
   className,
   variant = "default",
   size = "default",
-  children = "Request Access",
+  defaultRole,
+  children = "Book a Briefing",
 }: {
   className?: string;
   variant?: "default" | "outline";
   size?: "default" | "sm" | "lg";
+  defaultRole?: string;
   children?: ReactNode;
 }) {
   const { open } = useRequestAccess();
   return (
-    <Button onClick={open} className={className} variant={variant} size={size}>
+    <Button
+      onClick={() => open(defaultRole)}
+      className={className}
+      variant={variant}
+      size={size}
+    >
       {children}
     </Button>
   );

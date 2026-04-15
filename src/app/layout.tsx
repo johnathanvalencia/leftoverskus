@@ -23,9 +23,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Left Over SKUs",
+  title: "PathLLM — Governed Video Production at Commerce Scale",
   description:
-    "Synthesize infinite, high-fidelity video assets for every SKU — no cameras, no crews. AI-powered video generation at enterprise scale.",
+    "The enterprise production platform for agencies and brands that need compliant, brand-governed video faster than any team can produce it.",
 };
 
 export default function RootLayout({
