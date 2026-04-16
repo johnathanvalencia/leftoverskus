@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import {
@@ -14,9 +15,50 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+export const metadata: Metadata = {
+  title: "PathLLM for Brands — Full-Catalog Product Video at Scale",
+  description:
+    "85% of your SKUs have zero video. PathLLM generates governed, on-brand product video for your entire catalog — every SKU, every market, every platform. Compliant from the first frame.",
+  openGraph: {
+    title: "PathLLM for Brands — Full-Catalog Product Video at Scale",
+    description:
+      "Generate governed, on-brand product video for every SKU in your catalog. Close the long-tail video gap and lift conversions across your entire product line.",
+    url: "/solutions/brands",
+    siteName: "PathLLM",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PathLLM for Brands — Full-Catalog Product Video at Scale",
+    description:
+      "Generate governed, on-brand product video for every SKU in your catalog. Close the long-tail video gap and lift conversions across your entire product line.",
+  },
+  alternates: {
+    canonical: "/solutions/brands",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "PathLLM for Brands",
+  description:
+    "AI-powered governed video production platform that generates on-brand product video for your entire catalog — every SKU, every market, every platform.",
+  brand: { "@type": "Brand", name: "PathLLM" },
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/PreOrder",
+    description: "First video free under NDA. Request a briefing.",
+  },
+};
+
 export default function ForBrands() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main className="pt-14">
         {/* ── Hero ── */}

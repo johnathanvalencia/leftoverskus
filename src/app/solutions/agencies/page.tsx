@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import {
@@ -14,9 +15,50 @@ import {
   Zap,
 } from "lucide-react";
 
+export const metadata: Metadata = {
+  title: "PathLLM for Agencies — Governed AI Video Production at Portfolio Scale",
+  description:
+    "One platform deployment. Every brand in your portfolio. PathLLM replaces per-video production costs with governed AI video — margin-positive, compliant, and scalable across all clients.",
+  openGraph: {
+    title: "PathLLM for Agencies — Governed AI Video at Portfolio Scale",
+    description:
+      "Replace per-video production costs with governed AI video. One platform, every brand, margin-positive economics for agencies and holding companies.",
+    url: "/solutions/agencies",
+    siteName: "PathLLM",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PathLLM for Agencies — Governed AI Video at Portfolio Scale",
+    description:
+      "Replace per-video production costs with governed AI video. One platform, every brand, margin-positive economics for agencies and holding companies.",
+  },
+  alternates: {
+    canonical: "/solutions/agencies",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "PathLLM for Agencies",
+  description:
+    "AI-powered governed video production platform that serves an agency's entire client portfolio — each brand governed by its own DNA, fully isolated, margin-positive.",
+  brand: { "@type": "Brand", name: "PathLLM" },
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/PreOrder",
+    description: "Book an agency briefing. References available under NDA.",
+  },
+};
+
 export default function ForAgencies() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main className="pt-14">
         {/* ── Hero ── */}

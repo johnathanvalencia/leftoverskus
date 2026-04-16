@@ -23,9 +23,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PathLLM — Governed Video Production at Commerce Scale",
+  metadataBase: new URL("https://pathllm.ai"),
+  title: {
+    default: "PathLLM — Governed Video Production at Commerce Scale",
+    template: "%s | PathLLM",
+  },
   description:
     "The enterprise production platform for agencies and brands that need compliant, brand-governed video faster than any team can produce it.",
+  openGraph: {
+    siteName: "PathLLM",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
