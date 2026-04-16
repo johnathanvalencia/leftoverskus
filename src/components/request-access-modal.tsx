@@ -218,7 +218,7 @@ export function RequestAccessProvider({ children }: { children: ReactNode }) {
                     </h3>
                     <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
                       We&apos;ll reach out within one business day to schedule
-                      your briefing. All assets fully deleted on exit.
+                      your briefing.
                     </p>
                     <Button
                       onClick={close}

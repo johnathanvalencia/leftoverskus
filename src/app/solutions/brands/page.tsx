@@ -314,7 +314,7 @@ export default function ForBrands() {
 
             <FadeUp delay={0.2}>
               <p className="mx-auto mt-6 max-w-md text-sm text-muted-foreground">
-                First video free under NDA. All assets fully deleted on exit.
+                First video free under NDA.
               </p>
             </FadeUp>
           </div>
